@@ -5,7 +5,11 @@ html {
 
 body {
   overflow-x: hidden;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 820px) {

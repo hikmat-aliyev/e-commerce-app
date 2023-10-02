@@ -19,10 +19,10 @@ function Navbar() {
         <div className="navbar-container">
 
             <div className="links-container left">
-                <Link id="logo" className="navbar-links">Gasper</Link>
+                <Link to='/' id="logo" className="navbar-links">Gasper</Link>
                 {!mobile && <div>
-                    <Link className="navbar-links" to='/categories'>About</Link>
-                    <Link className="navbar-links" to='/categories'>Contact</Link>
+                    <Link className="navbar-links">About</Link>
+                    <Link className="navbar-links">Contact</Link>
                 </div> }
             </div>
 

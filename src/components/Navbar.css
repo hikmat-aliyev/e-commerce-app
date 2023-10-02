@@ -4,6 +4,8 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     border-bottom:  0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid red;
+    width: 95vw;
 }
 
 .navbar-container {
