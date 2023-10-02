@@ -1,0 +1,35 @@
+.banner2-container{ 
+    background-image: url('../assets/banner2.jpg');
+    width: 90vw;
+    height: 90vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner2-container > div > h1 {
+    font-size: 5vw;
+    color:azure;
+}
+
+.banner2-container > div > button {
+    font-size: 1.5vw;
+    border: none;
+    border-radius: 12px;
+    background-color: azure;
+    padding: 1rem;
+}
+
+.banner2-container > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+}
+
+@media screen and (max-width: 820px) {
+    .banner2-container {
+        height: 30vh;
+    }
+}
