@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import Home from './pages/Home.jsx'
+import Categories from './pages/Categories.jsx'
 
 const router = createBrowserRouter([
   {
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/categories',
-    element: <Home />,
+    element: <Categories />,
   }
 ])
 
