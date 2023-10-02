@@ -35,7 +35,7 @@ function Categories() {
     return(
         <div>
             <Navbar />
-            <div>
+            <div className="category-buttons">
                 <button onClick={handleAll}>All</button>
                 <button onClick={handleShirts}>Shirts</button>
                 <button onClick={handleJackets}>Jackets</button>

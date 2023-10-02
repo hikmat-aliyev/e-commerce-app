@@ -4,7 +4,6 @@ html {
 
 
 body {
-  overflow-x: hidden;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   flex-direction: column;

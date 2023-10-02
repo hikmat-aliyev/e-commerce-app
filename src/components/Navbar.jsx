@@ -22,7 +22,7 @@ function Navbar() {
                 <Link to='/' id="logo" className="navbar-links">Gasper</Link>
                 {!mobile && <div>
                     <Link className="navbar-links">About</Link>
-                    <Link className="navbar-links">Contact</Link>
+                    <Link className="navbar-links"  >Contact</Link>
                 </div> }
             </div>
 
