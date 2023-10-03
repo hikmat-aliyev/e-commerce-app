@@ -1,0 +1,60 @@
+.main-container {
+    margin-top: 50px;
+    border: 2px black solid;
+    width: 95vw;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.single-product-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+}
+
+.description-info {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.description-info > div {
+    padding: 1.5rem;
+    border: 1px solid rgb(99, 98, 98);
+}
+
+.description-info > div > button {
+    padding: 5px 2rem 5px 2rem;
+}
+
+.add-button {
+    padding: 15px;
+}
+
+.single-product-image {
+    width: 450px;
+    height: 600px;
+}
+
+.other-images-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.other-images-container > img {
+    width: 250px;
+    height: 350px;
+}
+
+#zoom {
+    width: 500;
+    height: 600;
+}
+
+.description-info > div > p {
+    font-size: 1.5rem;
+}

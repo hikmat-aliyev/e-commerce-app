@@ -4,6 +4,8 @@ import { products } from "../components/Products";
 import Footer from './Footer'
 import './Categories.css'
 import '../index.css'
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 function Categories() {
     const [all, setAll] = useState(true);
@@ -32,30 +34,39 @@ function Categories() {
     setAll(false); setJackets(true); setShirts(false); setSweatshirts(false);
    }
 
+    function handleProduct(key) {
+        const product = products.filter(item => item.id === key);
+        console.log(key)
+        return product;
+   }
+
     return(
         <div>
             <Navbar />
+
             <div className="category-buttons">
                 <button onClick={handleAll}>All</button>
                 <button onClick={handleShirts}>Shirts</button>
                 <button onClick={handleJackets}>Jackets</button>
                 <button onClick={handleSweatShirts}>Sweatshirts</button>
             </div>
+
             <div className="category-container">
                 {all && products.map(item => (
-                    <div key={item.id} className="category product-container">
+                    <Link to={`/product/${item.id}`}key={item.id} className="category product-container" onClick={() => handleProduct(item.id)}>
                         <img className='product-image category-products' src={item.imgFace} alt="product-image"/>
                         <img className='product-image hovered category-products' src={item.imgBack} alt="product-image"/>
                         <div className="description-container">
                             <h5>{item.title}</h5>
                             <h6>{item.price}</h6>
                         </div>
-                  </div>
+                    </Link>
                 ))}
             </div>
 
             <div className="category-container">
                 {shirts && shirtProducts.map(item => (
+                    
                     <div key={item.id} className="category product-container">
                         <img className='product-image category-products' src={item.imgFace} alt="product-image"/>
                         <img className='product-image hovered category-products' src={item.imgBack} alt="product-image"/>

@@ -4,15 +4,20 @@ import App from './App.jsx'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Categories from './pages/Categories.jsx'
+import Product from './pages/Product.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <App />
   },
   {
     path: '/categories',
-    element: <Categories />,
+    element: <Categories />
+  },
+  {
+    path: '/product/:productId',
+    element: <Product />
   }
 ])
 
