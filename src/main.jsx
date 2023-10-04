@@ -5,6 +5,7 @@ import './index.css'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Categories from './pages/Categories.jsx'
 import Product from './pages/Product.jsx'
+const addedItems = [];
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/product/:productId',
-    element: <Product />
+    element: <Product array={addedItems}/>
   }
 ])
 

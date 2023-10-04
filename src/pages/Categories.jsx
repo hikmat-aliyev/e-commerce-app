@@ -41,7 +41,7 @@ function Categories() {
    }
 
     return(
-        <div>
+        <div className="category-page">
             <Navbar />
 
             <div className="category-buttons">

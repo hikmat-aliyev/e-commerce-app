@@ -6,12 +6,14 @@ import PopularProducts from './pages/PopularProducts';
 import TrendingNow from './pages/TrendingNow';
 import Banner2 from './pages/Banner2';
 import Footer from './pages/Footer';
+import Navbar from './components/Navbar';
 
 
 function App() {
     
     return(
         <div className='all-pages-container'>
+            <Navbar />
             <Home />
             <PopularProducts />
             <Banner />
