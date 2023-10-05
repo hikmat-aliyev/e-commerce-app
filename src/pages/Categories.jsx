@@ -4,7 +4,6 @@ import { products } from "../components/Products";
 import Footer from './Footer'
 import './Categories.css'
 import '../index.css'
-import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 function Categories() {
@@ -42,7 +41,6 @@ function Categories() {
 
     return(
         <div className="category-page">
-            <Navbar />
 
             <div className="category-buttons">
                 <button onClick={handleAll}>All</button>
@@ -103,7 +101,6 @@ function Categories() {
                   </div>
                 ))}
             </div>
-            <Footer />
         </div>
     )
 }
