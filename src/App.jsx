@@ -1,70 +1,4 @@
-// import React, { useState, useEffect, createContext } from 'react';
-// import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-// import { Route, Routes } from "react-router-dom";
-// import Home from './pages/Home';
-// import './App.css'
-// import Banner from './pages/Banner';
-// import PopularProducts from './pages/PopularProducts';
-// import TrendingNow from './pages/TrendingNow';
-// import Banner2 from './pages/Banner2';
-// import Footer from './pages/Footer';
-// import Navbar from './components/Navbar';
-// import Categories from './pages/Categories';
-// import Product from './pages/Product';
-
-// export const CartContext = createContext(
-//     {
-//         cartItems: [],
-//         cartItemCount: 0,
-//         addToCart: () => {},
-//     }
-// );
-
-// // const router = createBrowserRouter([
-// //     {
-// //       path: '/',
-// //       element: <App />
-// //     },
-// //     {
-// //       path: '/categories',
-// //       element: <Categories />
-// //     },
-// //     {
-// //       path: '/product/:productId',
-// //       element: <Product />
-// //     }
-// //   ])
-
-// // eslint-disable-next-line react/prop-types
-// function App() {
-
-//     const[cartItems, setCartItems] = useState([]);
-
-//     const addToCart = (item) => {
-//         setCartItems([...cartItems, item])
-//     }
-    
-//     const cartItemCount = cartItems.length;
-
-//     return(
-//       <div className='all-pages-container'>
-//         <CartContext.Provider value={{cartItems, cartItemCount, addToCart}}>
-//             <Navbar />
-//             <Routes>
-
-//             </Routes>
-//             <Home />
-//             <PopularProducts />
-//             <Banner />
-//             <TrendingNow />
-//             <Banner2 />
-//             <Footer />
-//         </CartContext.Provider>
-//       </div>
-//     )
-// }
-
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, createContext, useRef } from 'react';
 import { Route, Routes } from "react-router-dom";
 import Home from './pages/Home';
 import './App.css'
@@ -86,6 +20,7 @@ export const CartContext = createContext(
 function App() {
     const[cartItems, setCartItems] = useState([]);
     const [cartItemCount, setCartItemCount] = useState(0);
+    const pageContainerRef = useRef(null);
 
     const addToCart = (name, price, image, size) => {
       const item = {
@@ -113,9 +48,16 @@ function App() {
       const count = cartItemCount + 1;
       setCartItemCount(count);
     }
+
+    useEffect(() => {
+      // Scroll to the top of the page container when the route changes
+      if (pageContainerRef.current) {
+        pageContainerRef.current.scrollTo(0, 0);
+      }
+    }, []);
     
     return(
-      <div className='all-pages-container'>
+      <div className='all-pages-container' ref={pageContainerRef}>
           <CartContext.Provider value={{cartItems, addToCart, cartItemCount, setCartItemCount}}>
             <Navbar setCartItems={setCartItems}/>
               <Routes>
@@ -123,7 +65,6 @@ function App() {
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/product/:productId" element={<Product />} />
              </Routes>
-             <Footer />
         </CartContext.Provider>
       </div>
 

@@ -2,6 +2,7 @@ import { products } from "../components/Products";
 import './PopularProducts.css'
 import '../index.css'
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function PopularProducts() {
   const trendProducts = products.filter((item) => item.popular === true);
@@ -21,14 +22,14 @@ function PopularProducts() {
 function ProductItem({ item }) {
 
   return (
-    <div className="product-container">
+    <Link to={`/product/${item.id}`} key={item.id} className="product-container">
       <img className='product-image' src={item.imgFace} alt="product-image"/>
       <img className='product-image hovered' src={item.imgBack} alt="product-image"/>
         <div className="description-container">
           <h5>{item.title}</h5>
           <h6>{item.price}</h6>
         </div>
-    </div>
+    </Link>
   );
 }
 

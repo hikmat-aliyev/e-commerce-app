@@ -2,11 +2,12 @@
 import { Link } from "react-router-dom"
 import './Navbar.css';
 import Cart from '../assets/shopping-cart.svg'
-import HamburgerMenu from '../assets/hamburger-menu.svg'
+import HamburgerMenuImg from '../assets/hamburger-menu.svg'
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { CartContext } from "../App";
+import HamburgerMenu from "./HamburgerMenu";
 
 function Navbar({setCartItems}) {
     const [mobile, setMobile] = useState(false);
@@ -14,6 +15,7 @@ function Navbar({setCartItems}) {
     const { cartItemCount } = useContext(CartContext);
     const { cartItems } = useContext(CartContext);
     const { setCartItemCount } = useContext(CartContext);
+    const [menu, setMenu] = useState(false);
 
     useEffect(() => {
         if(window.innerWidth <= 820){
@@ -69,6 +71,9 @@ function Navbar({setCartItems}) {
         setCartItemCount(cartItemCount - 1)
       }
       
+      function openMenu() {
+        setMenu(true);
+      }
 
     return(
         <div className="navbar-container">
@@ -84,43 +89,47 @@ function Navbar({setCartItems}) {
             <div className="links-container right">
                {!mobile && <Link className="navbar-links" to='/categories'>Categories</Link>}
                 <button onClick={openBasket} className="navbar-links cart-button"><img id="cart-svg" src={Cart} alt="shopping-cart" />{cartItemCount}</button>
-                {mobile && <Link><img id="hamburger-menu" src={HamburgerMenu} alt="hamburger-menu" /></Link> }
+                {mobile && <button onClick={openMenu}><img id="hamburger-menu" src={HamburgerMenuImg} alt="hamburger-menu" /></button> }
             </div>
 
-           
+            {menu && <HamburgerMenu setMenu={setMenu}/> }      
+
             {overlay && <div className="overlay" onClick={closeBasket}></div>}
+
             <div className="basket-page">
+
                 <div className="basket-header">   
                     <h2>Shopping Bag ({cartItemCount})</h2>
                     <button onClick={closeBasket} className="basket-close-button">X</button>
                 </div>
-                    {cartItems.map(item => (
-                        
-                        <div className="basket-product-container" key={item.title}>
 
-                            <div className="image-crop">
-                                <img className="basket-product-image" src={item.image} alt="" />
-                            </div>
-                            
-                            <div className="basket-product-info">
+                {cartItems.map(item => (
+                    
+                    <div className="basket-product-container" key={item.title}>
 
-                                <div className="item-name-container">
-                                    <h3>{item.name}</h3>
-                                    <button onClick={() => removeItem(item)}>X</button>
-                                </div>
-
-                                <h4>{item.price}</h4>
-                                <h4>{item.size}</h4>
-
-                                <div className="change-quantity-container">
-                                    <button onClick={() => decreaseQuantity(item)}>-</button>
-                                    <h3>{item.quantity}</h3>
-                                    <button onClick={() => increaseQuantity(item)}>+</button>
-                                </div>
-
-                            </div>
+                        <div className="image-crop">
+                            <img className="basket-product-image" src={item.image} alt="" />
                         </div>
-                    ))}
+                        
+                        <div className="basket-product-info">
+
+                            <div className="item-name-container">
+                                <h3>{item.name}</h3>
+                                <button className="product-remove-button" onClick={() => removeItem(item)}>X</button>
+                            </div>
+
+                            <h4>{item.price}</h4>
+                            <h4>{item.size}</h4>
+
+                            <div className="change-quantity-container">
+                                <button onClick={() => decreaseQuantity(item)}>-</button>
+                                <h3>{item.quantity}</h3>
+                                <button onClick={() => increaseQuantity(item)}>+</button>
+                            </div>
+
+                        </div>
+                    </div>
+                ))}
             </div>
             
         </div>

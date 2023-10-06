@@ -5,6 +5,8 @@ import '../index.css'
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../App";
+import Footer from "./Footer";
+
 
 function Categories() {
     const [all, setAll] = useState(true);
@@ -54,7 +56,7 @@ function Categories() {
 
             <div className="category-container">
                 {all && products.map(item => (
-                    <Link to={`/product/${item.id}`}key={item.id} className="category product-container" onClick={() => handleProduct(item.id)}>
+                    <Link to={`/product/${item.id}`} key={item.id} className="category product-container" onClick={() => handleProduct(item.id)}>
                         <img className='product-image category-products' src={item.imgFace} alt="product-image"/>
                         <img className='product-image hovered category-products' src={item.imgBack} alt="product-image"/>
                         <div className="description-container">
@@ -68,42 +70,43 @@ function Categories() {
             <div className="category-container">
                 {shirts && shirtProducts.map(item => (
                     
-                    <div key={item.id} className="category product-container">
+                    <Link to={`/product/${item.id}`} key={item.id} className="category product-container">
                         <img className='product-image category-products' src={item.imgFace} alt="product-image"/>
                         <img className='product-image hovered category-products' src={item.imgBack} alt="product-image"/>
                         <div className="description-container">
                             <h5>{item.title}</h5>
                             <h6>{item.price}</h6>
                         </div>
-                  </div>
+                  </Link>
                 ))}
             </div>
 
             <div className="category-container">
                 {jackets && jacketProducts.map(item => (
-                    <div key={item.id} className="category product-container">
+                    <Link to={`/product/${item.id}`} key={item.id} className="category product-container">
                         <img className='product-image category-products' src={item.imgFace} alt="product-image"/>
                         <img className='product-image hovered category-products' src={item.imgBack} alt="product-image"/>
                         <div className="description-container">
                             <h5>{item.title}</h5>
                             <h6>{item.price}</h6>
                         </div>
-                  </div>
+                  </Link>
                 ))}
             </div>
 
             <div className="category-container">
                 {sweatshirts && sweatshirtProducts.map(item => (
-                    <div key={item.id} className="category product-container">
+                    <Link to={`/product/${item.id}`} key={item.id} className="category product-container">
                         <img className='product-image category-products' src={item.imgFace} alt="product-image"/>
                         <img className='product-image hovered category-products' src={item.imgBack} alt="product-image"/>
                         <div className="description-container">
                             <h5>{item.title}</h5>
                             <h6>{item.price}</h6>
                         </div>
-                  </div>
+                  </Link>
                 ))}
             </div>
+            <Footer />
         </div>
     )
 }

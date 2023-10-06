@@ -4,7 +4,7 @@ import { products } from "../components/Products";
 import './Product.css'
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../App";
-
+import Footer from './Footer';
 
 // eslint-disable-next-line react/prop-types
 function Product() {
@@ -28,6 +28,7 @@ function Product() {
 
 
     function handlePayment() {
+
         addToCart(product[0].title, product[0].price, product[0].imgFace, size);
     }
 
@@ -70,6 +71,7 @@ function Product() {
                     </div>
                 </div>
             }
+            <Footer />
         </div>
     )
 }

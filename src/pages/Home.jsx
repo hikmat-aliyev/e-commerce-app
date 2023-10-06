@@ -4,6 +4,7 @@ import PopularProducts from "./PopularProducts";
 import Banner from "./Banner";
 import TrendingNow from "./TrendingNow";
 import Banner2 from "./Banner2";
+import Footer from "./Footer";
 
 function Home() {
 
@@ -14,6 +15,7 @@ function Home() {
             <Banner />
             <TrendingNow />
             <Banner2 />
+            <Footer />
         </div>
     )
 }

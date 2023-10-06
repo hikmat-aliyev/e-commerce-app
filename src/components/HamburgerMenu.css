@@ -1,0 +1,26 @@
+.hamburger-menu {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+    flex-direction: column;
+    background-color: white;
+    gap: 20px;
+}
+
+.hamburger-menu > * {
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.hamburger-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
