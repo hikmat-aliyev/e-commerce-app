@@ -86,7 +86,7 @@
     color: white;
 }
 
-.size-buttons {
+.size-buttons.selected, .add-button.selected {
     background-color: black;
     color: white;
 }

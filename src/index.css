@@ -4,6 +4,8 @@ html {
 
 
 body {
+  position: relative;
+  z-index: 1;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   flex-direction: column;

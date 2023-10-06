@@ -1,20 +1,18 @@
-import Navbar from "../components/Navbar";
-import Footer from './Footer'
 import '../index.css'
 import { useParams } from "react-router-dom";
 import { products } from "../components/Products";
 import './Product.css'
 import { useState, useEffect, useContext } from "react";
-// import { CartContext } from "../App";
+import { CartContext } from "../App";
+
 
 // eslint-disable-next-line react/prop-types
 function Product() {
-    const[product, setProduct] = useState(false)
-    const [img, setImg] = useState(null)
+    const[product, setProduct] = useState(false);
+    const [size, setSize] = useState(null);
+    const [img, setImg] = useState(null);
     const {productId} = useParams(); 
-
-    // const { cartItems } = useContext(CartContext);
-    // const { addToCart } = useContext(CartContext);
+    const { addToCart } = useContext(CartContext);
 
     const productInfo = products.filter(item => item.id == productId);
     
@@ -28,18 +26,15 @@ function Product() {
         setImg(image);
     }
 
-    function addToCart() {
-        const addedItem = {
-            addedProduct: product,
-            addedSize: size
-        }
-        cartItems.push(addedItem)
-        setArray(newArray);
+
+    function handlePayment() {
+        addToCart(product[0].title, product[0].price, product[0].imgFace, size);
     }
 
-    function handleSize(size) {
-        setSize(size)
+    function handleSize(sizeInfo) {
+        setSize(sizeInfo)
     }
+
 
     return(
         <div>
@@ -64,12 +59,12 @@ function Product() {
                                 <p>{product[0].description}</p>
                             </div>
                             <div className="size-container">
-                                <button onClick={() => handleSize('S')} className="size-buttons">S</button>
-                                <button onClick={() => handleSize('M')} className="size-buttons">M</button>
-                                <button onClick={() => handleSize('L')} className="size-buttons">L</button>
-                                <button onClick={() => handleSize('XL')} className="size-buttons">XL</button>
+                                <button onClick={() => handleSize('S')} className={`size-buttons ${size === 'S' ? 'selected' : ''}`}>S</button>
+                                <button onClick={() => handleSize('M')} className={`size-buttons ${size === 'M' ? 'selected' : ''}`}>M</button>
+                                <button onClick={() => handleSize('L')} className={`size-buttons ${size === 'L' ? 'selected' : ''}`}>L</button>
+                                <button onClick={() => handleSize('XL')} className={`size-buttons ${size === 'XL' ? 'selected' : ''}`}>XL</button>
                             </div>
-                            <button className="add-button" >Add To Cart</button>
+                            <button className={`add-button ${size ? 'selected' : ''}`} onClick={handlePayment}>Add To Cart</button>
                         </div>
 
                     </div>

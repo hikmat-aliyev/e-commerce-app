@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Navbar from "../components/Navbar";
 import { products } from "../components/Products";
-import Footer from './Footer'
 import './Categories.css'
 import '../index.css'
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../App";
 
 function Categories() {
     const [all, setAll] = useState(true);
@@ -15,6 +15,9 @@ function Categories() {
    const shirtProducts = products.filter(item => item.category === 'shirts');
    const sweatshirtProducts = products.filter(item => item.category === 'sweatshirts')
    const jacketProducts = products.filter(item => item.category === 'jackets')
+
+   const { cartItems, addToCart } = useContext(CartContext);
+   
 
    function handleAll() {
     setAll(true); setJackets(false); setShirts(false); setSweatshirts(false);
