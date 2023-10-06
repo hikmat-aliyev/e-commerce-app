@@ -120,9 +120,22 @@ button {
 
 .basket-product-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1rem;
     border: 1px solid gray;
     height: 220px;
+}
+
+@media screen and (max-width: 820px) {
+    .basket-product-container {
+        height: 17%;
+        font-size: 5px;
+    } 
+    
+    .product-remove-button, .change-quantity-container > button {
+        font-size: 15px;
+    }
 }
 
 .image-crop {
