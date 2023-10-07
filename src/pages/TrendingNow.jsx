@@ -1,36 +1,3 @@
-// import { products } from '../components/Products';
-// import './TrendingNow.css'
-// import { motion } from 'framer-motion';
-// import {useState, useEffect, useRef} from 'react'
-
-
-// function TrendingNow() {
-
-//     const trendingNow = products.filter((item) => item.trend === true)
-
-//     return(
-//         <div className='carousel-container'>
-//             <motion.div  className="product-container trending">
-//                 <motion.div className="inner-carousel">
-//                 {trendingNow.map((item) => {
-//                     return(
-//                         <motion.div key={item.id}>
-//                             <img className='product-image' src={item.imgFace} alt="product-image" />
-//                             <img className='product-image hovered' src={item.imgBack} alt="product-image" />
-//                             <div className="description-container">
-//                                 <h5>{item.title}</h5>
-//                                 <h6>{item.price}</h6>
-//                             </div>
-//                         </motion.div>           
-//                     )})
-//                 }
-//                 </motion.div>
-//             </motion.div>
-//         </div>
-//     )
-// }
-
-// export default TrendingNow;
 import { products } from '../components/Products';
 import './TrendingNow.css'
 import './PopularProducts.css'
