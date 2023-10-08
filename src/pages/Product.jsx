@@ -13,6 +13,7 @@ function Product() {
     const [img, setImg] = useState(null);
     const {productId} = useParams(); 
     const { addToCart } = useContext(CartContext);
+    const [error, showError] = useState(false);
 
     const productInfo = products.filter(item => item.id == productId);
     
@@ -28,8 +29,13 @@ function Product() {
 
 
     function handlePayment() {
-
-        addToCart(product[0].title, product[0].price, product[0].imgFace, size);
+        if(size){
+            addToCart(product[0].title, product[0].price, product[0].imgFace, size);
+            setSize(false);
+            showError(false);
+        }else {
+            showError(true);
+        }
     }
 
     function handleSize(sizeInfo) {
@@ -66,6 +72,7 @@ function Product() {
                                 <button onClick={() => handleSize('XL')} className={`size-buttons ${size === 'XL' ? 'selected' : ''}`}>XL</button>
                             </div>
                             <button className={`add-button ${size ? 'selected' : ''}`} onClick={handlePayment}>Add To Cart</button>
+                            {error && <p>Please select size</p>}
                         </div>
 
                     </div>
